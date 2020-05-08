@@ -15,7 +15,7 @@ There is a propagation time inherent to the system itself, so if you want to do 
 
 If you build something interesting with this, let me know!
 
-![Image](https://github.com/DiogoDeAndrade/BrokenWorld/raw/master/Screenshots/screen01.png)
+![Image](https://github.com/DiogoDeAndrade/McChullochPittsNeurons/raw/master/Screenshots/screen01.png)
 
 ## Credits
 
