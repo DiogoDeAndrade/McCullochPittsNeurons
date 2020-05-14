@@ -102,6 +102,8 @@ public class Neuron : MonoBehaviour
             }
         }
 
+        if (Brain.Get() == null) return;
+
         LineRenderer prefab = Brain.Get().lineRendererPrefab;
         if (prefab == null) return;
 
@@ -125,7 +127,7 @@ public class Neuron : MonoBehaviour
         }
         lines.RemoveAll((x) => x.lineRenderer == null);
 
-        float tangentOffset = 1f;
+        float tangentOffset = 2f;
 
         float aInc = 20.0f;
         float angle = 180.0f - (dendrites.Count - 1) * 0.5f * aInc;
@@ -215,7 +217,7 @@ public class Neuron : MonoBehaviour
 
     public int GetValue()
     {
-        return currentValue;
+        return (currentValue >= theta)?(1):(0);
     }
 
     public void ComputeOutput()
@@ -241,14 +243,6 @@ public class Neuron : MonoBehaviour
                 }
             }
         }
-        if (currentValue >= theta)
-        {
-            currentValue = 1;
-        }
-        else
-        {
-            currentValue = 0;
-        }
     }
 
     public void UpdateInputs()
@@ -257,7 +251,7 @@ public class Neuron : MonoBehaviour
         {
             if (d.neuron)
             {
-                d.value = d.neuron.currentValue;
+                d.value = d.neuron.GetValue();
             }
             else
             {
